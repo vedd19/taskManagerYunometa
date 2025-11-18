@@ -2,14 +2,14 @@ const mongoose = require('mongoose')
 const { MongoClient } = require('mongodb');
 
 async function connectToDB() {
-    const uri = process.env.MONGO_URI;
-    const client = new MongoClient(uri);
     try {
-        await client.connect();
-        console.log("connected to mongodb atlas")
-    }
-    catch (err) {
-        console.log(err, "error")
+        await mongoose.connect(process.env.MONGO_URI, {
+            dbName: "taskmanager",
+        });
+
+        console.log("Mongoose connected to MongoDB Atlas");
+    } catch (err) {
+        console.error("MongoDB connection error:", err);
     }
 }
 
