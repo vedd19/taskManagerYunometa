@@ -34,3 +34,22 @@ This endpoint allows users to add a new task.
 
 
 
+
+
+### Endpoint
+
+`GET /api/tasks`
+
+# Description 
+This endpoint allows to get all the tasks.
+
+# Success Response
+"status code" : "200"
+{
+    `allTasks`:[{...},{...}]
+}
+
+# Error Response
+"status code": 400
+
+

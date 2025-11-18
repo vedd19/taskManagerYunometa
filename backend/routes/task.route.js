@@ -10,4 +10,6 @@ router.post('/api/tasks', [
     body('status').isIn(['pending', 'in progress', 'completed']).withMessage("Status must be pending, in progress, or completed")
 ], taskController.addTask);
 
+router.get('/api/tasks', taskController.getTasks)
+
 module.exports = router;
