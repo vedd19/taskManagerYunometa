@@ -1,5 +1,8 @@
 
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import { Login } from './pages/Login'
+import { Navbar } from './components/Navbar'
 
 function App() {
 
@@ -7,7 +10,8 @@ function App() {
   return (
 
     <div>
-      hello from taskManager
+      <Navbar />
+      <Outlet />
     </div>
   )
 }
