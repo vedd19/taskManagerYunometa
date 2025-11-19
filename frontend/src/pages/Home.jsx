@@ -4,9 +4,20 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import { useState } from 'react';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import ReactModal from 'react-modal';
+import { TaskModal } from '../components/TaskModal';
 
 export const Home = () => {
     const [filter, setFilter] = useState("All")
+    const [isAddTaskModal, setIsAddTaskModal] = useState(false)
+
+    const openModal = () => {
+        setIsAddTaskModal(true)
+    }
+
+    const closeModal = () => {
+        setIsAddTaskModal(false)
+    }
     return (
         <div className='bg-[#f7f9fa] h-screen w-full'>
 
@@ -29,6 +40,7 @@ export const Home = () => {
 
                 <div className="create-task rounded">
                     <Button
+                        onClick={openModal}
                         size='small'
                         variant='contained'
                         color='primary'
@@ -36,6 +48,9 @@ export const Home = () => {
                         }>
                         Create Task
                     </Button>
+                    {isAddTaskModal && <TaskModal isOpen={isAddTaskModal}
+                        closeModal={closeModal}
+                    />}
                 </div>
             </div>
 
