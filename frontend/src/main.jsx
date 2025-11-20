@@ -5,11 +5,13 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Home } from './pages/Home.jsx'
 import { Login } from './pages/Login.jsx'
+import { TaskContextProvider } from './context/TaskContextProvider.jsx'
+import { SnackbarProvider } from 'notistack'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <SnackbarProvider><TaskContextProvider><App /></TaskContextProvider></SnackbarProvider>,
     children: [
       {
         path: "/",
