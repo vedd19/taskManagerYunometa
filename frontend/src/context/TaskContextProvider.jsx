@@ -5,7 +5,7 @@ import config from '../config';
 
 export const TaskContextProvider = ({ children }) => {
     const [allTasks, setAllTasks] = useState([]);
-    const [filteredTasks, setFiletredTasks] = useState([]);
+    const [filteredTasks, setFilteredTasks] = useState([]);
     const [filter, setFilter] = useState("all")
 
 
@@ -15,9 +15,9 @@ export const TaskContextProvider = ({ children }) => {
         async function findFilter() {
             if (filter !== 'all') {
                 const filtered = allTasks.filter((ele) => ele.status === filter);
-                setFiletredTasks(filtered)
+                setFilteredTasks(filtered)
             } else {
-                setFiletredTasks(allTasks)
+                setFilteredTasks(allTasks)
             }
         }
         if (allTasks) {
