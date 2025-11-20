@@ -5,6 +5,26 @@ import config from '../config';
 
 export const TaskContextProvider = ({ children }) => {
     const [allTasks, setAllTasks] = useState([]);
+    const [filteredTasks, setFiletredTasks] = useState([]);
+    const [filter, setFilter] = useState("all")
+
+
+
+
+    useEffect(() => {
+        async function findFilter() {
+            if (filter !== 'all') {
+                const filtered = allTasks.filter((ele) => ele.status === filter);
+                setFiletredTasks(filtered)
+            } else {
+                setFiletredTasks(allTasks)
+            }
+        }
+        if (allTasks) {
+            findFilter();
+        }
+
+    }, [filter, allTasks])
 
     const handleTaskUpdate = () => {
         getTasks();
@@ -26,7 +46,7 @@ export const TaskContextProvider = ({ children }) => {
     }, [])
 
     return (
-        <TaskContext.Provider value={{ allTasks, setAllTasks, handleTaskUpdate }}>
+        <TaskContext.Provider value={{ allTasks, setAllTasks, handleTaskUpdate, setFilter, filteredTasks, filter }}>
             {children}
         </TaskContext.Provider>
     )

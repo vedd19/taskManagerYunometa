@@ -38,7 +38,7 @@ module.exports.getTasks = async (req, res, next) => {
 module.exports.getSingleTask = async (req, res, next) => {
 
     const taskId = req.params.id;
-    console.log(taskId)
+    // console.log(taskId)
 
     try {
         const task = await taskModel.findById({ _id: taskId });

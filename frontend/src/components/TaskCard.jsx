@@ -24,6 +24,7 @@ export const TaskCard = ({ title, description, status, id }) => {
     const deleteHandler = () => {
         setIsDelete(true)
     }
+
     return (
 
         <div className="shadow-md border-1 border-gray-200 mx-4 p-2 flex justify-between h-30 rounded-lg container">
@@ -41,7 +42,7 @@ export const TaskCard = ({ title, description, status, id }) => {
             <div className="h-full icons flex flex-col justify-between self-end">
 
                 <div className="self-end">
-                    <span className="bg-[#dbfce7] rounded-xl px-3  text-[#016f7d] font-medium " style={{ textAlign: "center" }}>{status}</span>
+                    {<span className={`${status === "pending" ? "bg-[#fef9c2] text-[#894b00]" : ""} ${status === "completed" ? "bg-[#dbfce7] text-[#016f7d]" : ""}  rounded-xl px-3   font-medium`} style={{ textAlign: "center" }}>{status}</span>}
                 </div>
 
                 <div className="">
