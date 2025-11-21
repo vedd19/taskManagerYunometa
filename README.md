@@ -7,6 +7,25 @@ Go through and precautions : As soon as the link is opened you will be redirecte
  Implemented pagination, when in only 3 tasks will be shown in one page and we can navigate through.
  Also Implemented a Filter by status feature, in which user can filter all his tasks and see which tasks are pending and which are completed and take relevent actions, may be delete the completed tasks, edit the pending tasks, or create a new task.
 
+
+ # How to run on local machine
+
+ 1. clone the repo to your local system
+ 2. navigate to the backend folder and install all the libraries by running the commans `npm install`
+ 3. create a `.env` file and mention your mention your mongoDB atlas url
+        `format` : "MONGO_URI" = mongodb+srv://###############################################/`
+
+    OR you local mongo compass url.
+
+    just make sure the key is `MONGO_URI`
+
+4. run the server.js file `command: node server.js OR npm start`
+
+5. change directory to the frontend folder install all the dependencies by the command npm install 
+6. run the program by the command `npm run dev`
+7. go to the localhost url provided. and make sure the backend is live.
+
+
 # TECH STACKS 
 `Frontend`
 
